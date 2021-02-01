@@ -8,14 +8,15 @@ jobs = soup.find_all('li', class_='clearfix job-bx wht-shd-bx')
 
 for job in jobs:
     publish_Date=job.find('span', class_='sim-posted').text.strip()
-    company_name = job.find('h3', class_='joblist-comp-name').text.strip()
+    if 'few' in publish_Date:
+        company_name = job.find('h3', class_='joblist-comp-name').text.strip()
 
-    skills = job.find('span', class_='srp-skills').text.replace(' ', '')
+        skills = job.find('span', class_='srp-skills').text.replace(' ','')
 
-    print(publish_Date)
-    # print(f'''Company Name: {company_name}
-    # Req Skills: {skills}''')
-
+        print(publish_Date)
+        print(f'company Name: {company_name}')
+        print(f'Skills Required: {skills}')
+#
 
 
 
